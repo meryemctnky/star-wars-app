@@ -6,13 +6,32 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      screens: {
+        sm: '540px',
+        md: '720px',
+        lg: '960px',
+        xl: '1140px',
+        '2xl': '1320px',
+      },
+    },
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        cover: "url('/background2.jpg')",
+      },
+      backgroundPosition: {
+        top: 'top',
+        bottom: 'bottom',
+        center: 'center',
+      },
+      colors: {
+        dark: '#000',
+        banana: '#ffe81f',
+        fume: '#BAC1C0',
+        gunmetal: '#22282D',
+        burgundy: '#800020',
+        ymared: '#E00034',
       },
     },
   },
-  plugins: [],
-}
+};

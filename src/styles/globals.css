@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.icon {
+  font-size: 24px;
+  margin-left: 1rem;
+  animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
+}
