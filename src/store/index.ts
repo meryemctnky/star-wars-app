@@ -8,7 +8,7 @@ export const store = configureStore({
   },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export type RootState = ReturnType<typeof store.getState>; // Define a type for the entire state of the store, based on the current state returned by calling getState() on the store
+export type AppDispatch = typeof store.dispatch; // Define a type for the dispatch function, which can be used to dispatch actions to the store
+export const useAppDispatch: () => AppDispatch = useDispatch; // Create a custom hook for retrieving the dispatch function from the Redux store
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector; // Create a custom hook for selecting data from the Redux store that is typed using the RootState type
