@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className='fixed bottom-0 w-full bg-dark'>
       <div className='container mx-auto flex justify-between'>
@@ -24,7 +24,7 @@ const Footer = () => {
                 rel='noopener noreferrer'
               >
                 <button type='button' className='text-fume text-2xl'>
-                  <BsLinkedin />{' '}
+                  <BsLinkedin />
                 </button>
               </Link>
             </li>

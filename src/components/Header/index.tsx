@@ -1,12 +1,12 @@
-import SearchForm from '../SearchForm';
 import { Teko } from 'next/font/google';
+import SearchForm from '../SearchForm';
 
 const teko = Teko({
   subsets: ['latin'],
   weight: '300',
 });
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className={`bg-cover bg-center ${teko.className}`}>
       <div className='bottom-0 left-0 right-0 top-0 bg-gradient-to-b from-dark/80 w-full h-full'>
