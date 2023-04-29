@@ -32,7 +32,6 @@ const starshipSlice = createSlice({
       state.isAllLoaded = false;
     },
   },
-  //// Handle additional actions that may be dispatched by asynchronous actions
   extraReducers({ addCase }) {
     addCase(fetchStarshipsAsync.pending, (state) => {
       state.isLoading = true;
@@ -42,7 +41,6 @@ const starshipSlice = createSlice({
 
       const { starships, total, next } = action.payload;
 
-      //// Update the state based on whether a query has been made
       if (state.query === '') {
         state.starships = [...state.starships, ...starships];
       } else {
@@ -52,7 +50,7 @@ const starshipSlice = createSlice({
 
       state.total = total;
 
-      state.isAllLoaded = next === null ? true : false; //// Set isAllLoaded to true if there are no more pages to load
+      state.isAllLoaded = next === null ? true : false;
     }),
       addCase(fetchStarshipsAsync.rejected, (state, action) => {
         state.isLoading = false;
