@@ -19,11 +19,6 @@ export type Starship = {
   url: string;
 };
 
-export type StarshipListProps = {
-  starships: Starship[];
-  className?: string;
-};
-
 export type StarshipCardProps = {
   starship: Starship;
 };
@@ -48,8 +43,4 @@ export type FetchStarshipsResponse = {
 export type FetchStarshipsProps = {
   page: number;
   query: string;
-};
-
-export type Props = {
-  initialStarships: Array<Starship>;
 };
