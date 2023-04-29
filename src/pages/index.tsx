@@ -1,10 +1,25 @@
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
+import { RootState, useAppDispatch, useAppSelector } from '../store/index';
+import { fetchStarshipsAsync } from '@/services';
+import Header from '@/components/Header';
+import StarshipList from '@/components/Starship/List';
+import Loading from '@/components/Loading';
+import Error from '@/components/Error';
+import LoadMore from '@/components/LoadMore';
 
-const inter = Inter({ subsets: ['latin'] });
+const HomePage: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const { isLoading, page, query, error } = useAppSelector(
+    (state: RootState) => state.starships
+  );
 
-export default function Home() {
+  useEffect(() => {
+    if (page > 1) {
+      dispatch(fetchStarshipsAsync({ page, query }));
+    }
+  }, [page, dispatch]);
+
   return (
     <>
       <Head>
@@ -16,9 +31,17 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <link rel='icon' href='/icon.ico' />
       </Head>
-      <main>
-        <h1>Home</h1>
-      </main>
+      <Header />
+      {error ? (
+        <Error message={error} />
+      ) : (
+        <>
+          <StarshipList />
+          {isLoading ? <Loading /> : <LoadMore />}
+        </>
+      )}
     </>
   );
-}
+};
+
+export default HomePage;
